@@ -1,4 +1,10 @@
 ---
 label: Resume
 hide_body: true
-fields: []
+fields:
+- name: resume
+  type: include
+  config: {}
+  template: resume
+  label: Resume
+  description: duyfuidf dfydfid yfiyd
