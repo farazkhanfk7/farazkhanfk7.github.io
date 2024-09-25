@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backend on Hasan Faraz Khan</title>
-    <link>http://farazkhanfk7.github.io/tags/backend/</link>
+    <link>https://farazkhanfk7.github.io/tags/backend/</link>
     <description>Recent content in Backend on Hasan Faraz Khan</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 25 Sep 2024 15:11:49 +0530</lastBuildDate>
-    <atom:link href="http://farazkhanfk7.github.io/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://farazkhanfk7.github.io/tags/backend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Embracing Learning: My Journey into Backend and System Design</title>
-      <link>http://farazkhanfk7.github.io/posts/my-journey-into-backend-and-system-design/</link>
+      <link>https://farazkhanfk7.github.io/posts/my-journey-into-backend-and-system-design/</link>
       <pubDate>Wed, 25 Sep 2024 15:11:49 +0530</pubDate>
-      <guid>http://farazkhanfk7.github.io/posts/my-journey-into-backend-and-system-design/</guid>
-      <description>&lt;h1 id=&#34;embracing-learning-my-journey-into-backend-and-system-design&#34;&gt;&#xA;  Embracing Learning: My Journey into Backend and System Design&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#embracing-learning-my-journey-into-backend-and-system-design&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Welcome to my blog! I’m excited to share that I’ll be documenting my learning experiences in backend development and system design. This isn’t just a platform to showcase my skills or brag about my accomplishments; rather, it’s a valuable tool for my own revision and deepening my understanding of complex concepts.&lt;/p&gt;&#xA;&lt;p&gt;As I set out on this path, I&amp;rsquo;ve come to understand that documenting my learning aids in knowledge retention. It forces me to go back over subjects, make sense of what I&amp;rsquo;m thinking, and investigate places I might not have seen at first. Every blog entry will function as a contemplative activity, enabling me to amalgamate my acquired knowledge and disseminate it to individuals who could profit from my perspectives.&lt;/p&gt;</description>
+      <guid>https://farazkhanfk7.github.io/posts/my-journey-into-backend-and-system-design/</guid>
+      <description>&lt;h1 id=&#34;embracing-learning-my-journey-into-backend-and-system-design&#34;&gt;&#xA;  Embracing Learning: My Journey into Backend and System Design&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#embracing-learning-my-journey-into-backend-and-system-design&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Welcome to my blog! I’m excited to share that I’ll be documenting my learning experiences in backend development and system design. This isn’t just a platform to showcase my skills or brag about my accomplishments; rather, it’s a valuable tool for my own revision and deepening my understanding of complex concepts.&lt;/p&gt;&#xA;&lt;p&gt;As I start this journey, I&amp;rsquo;ve realized that writing about what I learn helps me remember things better. It makes me review topics, clarify my thoughts, and explore areas I might have missed. Each blog post will serve as a way to reflect on what I&amp;rsquo;ve learned, allowing me to combine my knowledge and share it with others who might benefit from my ideas.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using Signals in Django framework. How do they work ?</title>
-      <link>http://farazkhanfk7.github.io/posts/using-signals-in-django-framework/</link>
+      <link>https://farazkhanfk7.github.io/posts/using-signals-in-django-framework/</link>
       <pubDate>Mon, 05 Apr 2021 14:21:51 +0530</pubDate>
-      <guid>http://farazkhanfk7.github.io/posts/using-signals-in-django-framework/</guid>
+      <guid>https://farazkhanfk7.github.io/posts/using-signals-in-django-framework/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/v2/resize:fit:1400/format:webp/1*MDmm95oaDAFgbDkjptJALw.jpeg&#34; alt=&#34;captionless image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;The Django Signals can be used to get notified when certain events occur. They can also be used for database logging. Let’s say you want to perform some logic every time a given model instance is updated, but there are several places in your codebase that this model can be updated. You can do that using &lt;strong&gt;signals&lt;/strong&gt;, hooking some pieces of code to be executed every time this specific model’s save method is triggered.&lt;/p&gt;</description>
     </item>
   </channel>
