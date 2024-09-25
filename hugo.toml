@@ -16,7 +16,7 @@ style = "github-dark"
 [params]
   author = "Hasan Faraz Khan"
   info = "Software Engineer ( Backend )"
-  description = "intriguing possibilities"
+  description = "_intriguing possibilities_"
   keywords = "blog,developer,personal"
   avatarurl = "https://avatars.githubusercontent.com/u/47111858?v=4"
   #gravatar = "john.doe@example.com"
@@ -72,4 +72,9 @@ style = "github-dark"
   name = "Resume"
   weight = 3
   url  = "resume/"
+
+[[menu.main]]
+  name = "System Design"
+  weight = 4
+  url  = "system-design/"
 

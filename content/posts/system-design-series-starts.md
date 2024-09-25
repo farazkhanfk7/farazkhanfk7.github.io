@@ -23,5 +23,5 @@ As I commit to this writing endeavor, I can’t help but wonder how consistent I
 
 I remind myself to stay engaged and keep exploring new ideas. I'll try to dive deeper into backend development and system design—let’s see how it unfolds!
 
-Happy coding!
+You can check out the [System Design blogs here](/system-design/)
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System Design on Hasan Faraz Khan</title>
+    <link>https://farazkhanfk7.github.io/system-design/</link>
+    <description>Recent content in System Design on Hasan Faraz Khan</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Sep 2024 15:11:49 +0530</lastBuildDate>
+    <atom:link href="https://farazkhanfk7.github.io/system-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EP01 : Scaling Backend Systems</title>
+      <link>https://farazkhanfk7.github.io/system-design/scaling-backend-systems/</link>
+      <pubDate>Wed, 25 Sep 2024 15:11:49 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/system-design/scaling-backend-systems/</guid>
+      <description>&lt;p&gt;To be continued..&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
