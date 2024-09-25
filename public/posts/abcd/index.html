@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Using Signals in Django framework. How do they work ? · Hasan Faraz Khan
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Hasan Faraz Khan">
+<meta name="description" content="
+The Django Signals can be used to get notified when certain events occur. They can also be used for database logging. Let’s say you want to perform some logic every time a given model instance is updated, but there are several places in your codebase that this model can be updated. You can do that using signals, hooking some pieces of code to be executed every time this specific model’s save method is triggered.">
+<meta name="keywords" content="blog,developer,personal">
+<meta name="fediverse:creator" content="" />
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Using Signals in Django framework. How do they work ?">
+  <meta name="twitter:description" content="
+The Django Signals can be used to get notified when certain events occur. They can also be used for database logging. Let’s say you want to perform some logic every time a given model instance is updated, but there are several places in your codebase that this model can be updated. You can do that using signals, hooking some pieces of code to be executed every time this specific model’s save method is triggered.">
+
+<meta property="og:url" content="http://localhost:1313/posts/abcd/">
+  <meta property="og:site_name" content="Hasan Faraz Khan">
+  <meta property="og:title" content="Using Signals in Django framework. How do they work ?">
+  <meta property="og:description" content="
+The Django Signals can be used to get notified when certain events occur. They can also be used for database logging. Let’s say you want to perform some logic every time a given model instance is updated, but there are several places in your codebase that this model can be updated. You can do that using signals, hooking some pieces of code to be executed every time this specific model’s save method is triggered.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-25T14:21:51+05:30">
+    <meta property="article:modified_time" content="2024-09-25T14:21:51+05:30">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/abcd/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Hasan Faraz Khan
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/resume/">Resume</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/abcd/">
+              Using Signals in Django framework. How do they work ?
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-09-25T14:21:51&#43;05:30">
+                September 25, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*MDmm95oaDAFgbDkjptJALw.jpeg" alt="captionless image"></p>
+<p>The Django Signals can be used to get notified when certain events occur. They can also be used for database logging. Let’s say you want to perform some logic every time a given model instance is updated, but there are several places in your codebase that this model can be updated. You can do that using <strong>signals</strong>, hooking some pieces of code to be executed every time this specific model’s save method is triggered.</p>
+<p>In this piece, we’ll look at how we can use Django’s in-built signals, how they work, and how we can create custom signals.</p>
+<p>In Django, there are signals for Models, Views, and even authorization. <strong>pre_save</strong> and <strong>post_save</strong> are the most common signals that are used to trigger events every time a model instance is updated. Let’s say we want to create a user’s profile every time a user is registered and a new entry is made in Django’s inbuilt <strong>User</strong> model. This can easily be done using signals.</p>
+<p>Consider this as my model for the profile of a user.</p>
+<pre tabindex="0"><code>&gt;&gt;models.py
+class Profile(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20,blank=True)
+    profile_pic = models.ImageField(upload_to=&#39;pics&#39;,default=&#39;x&#39;)    def __str__(self):
+        return f&#34;{self.first_name} {self.last_name}&#34;
+</code></pre><p>There are two key elements in the signals: the <em>senders</em> and the <em>receivers</em>. As the name suggests, the <em>sender</em> is the one responsible to dispatch a signal, and the <em>receiver</em> is the one who will receive this signal and then do something. The first thing to do — I created a function that will take an instance of our sender class which in this case is the User model. This function will create the profile for a new user.</p>
+<pre tabindex="0"><code>def create_profile(sender,instance,created,**kwargs):
+    if created:
+      Profile.objects.create(user=instance)
+      print(&#39;Profile Created !&#39;)
+</code></pre><p>Now, all that left is to connect this function with our signal, so that it is executed every time. This can be done using <code>post_save.connect()</code> method. This will take two arguments, first-a function, second-a sender i.e <strong>User</strong> model.</p>
+<pre tabindex="0"><code>from django.db.models.signals import post_savepost_save.connect(create_profile, sender=User)
+</code></pre><p>This can also be used with a decorator. <code>receiver</code> decorator can be used to connect to a signal and it works quite the same.</p>
+<pre tabindex="0"><code>def receiver(notification):
+   def _wrapper(func):
+      if isinstance(signal, (list, tuple)):
+         for s in signal:
+             s.connect(func, **kwargs)
+      else:
+         signal.connect(func, **kwargs)
+      return func
+   return _wrapper
+</code></pre><p>This is the code inside receiver decorator.</p>
+<pre tabindex="0"><code>&gt;&gt;signals.py
+from django.dispatch import receiver@receiver(post_save, sender=User)
+def update_profile(sender,instance,created,**kwargs):
+    if created == False:
+       instance.profile.save()
+       print(&#34;Profile Updated!)
+</code></pre><p>The next question— How to use it in our application?</p>
+<p>To make it work, the signal needs to be imported in the configuration class inside the <em>apps.py</em> file, also the app should be added to the INSTALLED_APPS list in <em>settings.py</em>. Here ‘core’ was the name of my app.</p>
+<pre tabindex="0"><code>&gt;&gt; apps.py
+class CoreConfig(AppConfig):
+    name = &#39;core&#39;
+    def ready(self):
+       import core.signals
+</code></pre><p>Some other useful in-built signals are :</p>
+<ul>
+<li>django.db.models.signals.<strong>pre_init</strong>: <code>function(sender,*args,**kwargs)</code></li>
+<li>django.db.models.signals.<strong>post_init</strong>: <code>function(sender,instance)</code></li>
+<li>django.db.models.signals.<strong>post_delete</strong>: <code>function(sender,instance,using)</code></li>
+</ul>
+<p>Find more at : <a href="https://docs.djangoproject.com/en/3.1/topics/signals/"  class="external-link" target="_blank" rel="noopener"><em>Django documentation</em></a></p>
+<h1 id="creating-custom-signals">
+  Creating custom signals
+  <a class="heading-link" href="#creating-custom-signals">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>All signals in django, are instance of <code>django.dispatch.Signal</code> . We can use it to create custom signals and this time we won’t have to worry about the parameters in the receiver function like sender, instance or created. Now, we can use a single parameter <code>providing_args</code> to provide a list of arguments to the receiver.</p>
+<p>There are two methods to send signals in Django :</p>
+<ul>
+<li>send() : This can take multiple argument, the first one is the sender. Rest depends on the list of arguments passed in Signal.</li>
+<li>send_robust() : This is very similar to send() except it can be used to catch any exception raised by receiver function.</li>
+</ul>
+<pre tabindex="0"><code>from django.dispatch import Signalnotification = Signal(providing_args=[&#39;email&#39;,&#39;username&#39;]@receiver(notification)
+def show_notification(sender,**kwargs):
+   print(f&#34;Sender is {sender}&#34;)
+   print(f&#34;Hi,{kwargs[&#39;username&#39;]} your email is {kwargs[&#39;email&#39;]}&#34;)
+   print(&#34;Notified&#34;)
+</code></pre><p>We can trigger this signal from any route.</p>
+<pre tabindex="0"><code>def register(request):
+  notification.send(sender=User,email=&#34;xyz@mail.com&#34;,username=&#34;xyz&#34;)
+  return HttpResponse(&#34;Sent&#34;)
+</code></pre><p>This was a quick overview of both in-built and custom signals. You can find more about them on official documentation of Django. Happy Coding !</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2024
+     Hasan Faraz Khan 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
