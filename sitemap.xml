@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://farazkhanfk7.github.io/</loc>
+    <lastmod>2024-09-25T20:21:47+05:30</lastmod>
+  </url><url>
+    <loc>https://farazkhanfk7.github.io/system-design/</loc>
+    <lastmod>2024-09-25T20:21:47+05:30</lastmod>
+  </url><url>
     <loc>https://farazkhanfk7.github.io/authors/</loc>
     <lastmod>2024-09-25T15:11:49+05:30</lastmod>
   </url><url>
@@ -11,7 +17,7 @@
     <loc>https://farazkhanfk7.github.io/posts/my-journey-into-backend-and-system-design/</loc>
     <lastmod>2024-09-25T15:11:49+05:30</lastmod>
   </url><url>
-    <loc>https://farazkhanfk7.github.io/</loc>
+    <loc>https://farazkhanfk7.github.io/system-design/scaling-backend-systems/</loc>
     <lastmod>2024-09-25T15:11:49+05:30</lastmod>
   </url><url>
     <loc>https://farazkhanfk7.github.io/authors/hasan-faraz-khan/</loc>

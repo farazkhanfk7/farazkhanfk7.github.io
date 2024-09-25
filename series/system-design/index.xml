@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System-Design on Hasan Faraz Khan</title>
+    <link>http://localhost:1313/series/system-design/</link>
+    <description>Recent content in System-Design on Hasan Faraz Khan</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Sep 2024 15:11:49 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/series/system-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>01 | Introduction:  System Design</title>
+      <link>http://localhost:1313/system-design/system-design-intro/</link>
+      <pubDate>Wed, 25 Sep 2024 15:11:49 +0530</pubDate>
+      <guid>http://localhost:1313/system-design/system-design-intro/</guid>
+      <description>&lt;p&gt;&amp;lt; to be continued &amp;gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
