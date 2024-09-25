@@ -15,7 +15,7 @@ series = []
 
 Welcome to my blog! I’m excited to share that I’ll be documenting my learning experiences in backend development and system design. This isn’t just a platform to showcase my skills or brag about my accomplishments; rather, it’s a valuable tool for my own revision and deepening my understanding of complex concepts.
 
-As I set out on this path, I've come to understand that documenting my learning aids in knowledge retention. It forces me to go back over subjects, make sense of what I'm thinking, and investigate places I might not have seen at first. Every blog entry will function as a contemplative activity, enabling me to amalgamate my acquired knowledge and disseminate it to individuals who could profit from my perspectives.
+As I start this journey, I've realized that writing about what I learn helps me remember things better. It makes me review topics, clarify my thoughts, and explore areas I might have missed. Each blog post will serve as a way to reflect on what I've learned, allowing me to combine my knowledge and share it with others who might benefit from my ideas.
 
 One of my upcoming projects is a series focused on system design. System design is a crucial skill for backend developers, and I believe diving deep into this subject will greatly enhance my understanding of building scalable and efficient systems. Through this series, I hope to explore various concepts, patterns, and best practices that define effective system design.
 

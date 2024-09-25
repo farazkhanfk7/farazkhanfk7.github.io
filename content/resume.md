@@ -47,5 +47,5 @@ _Bachelors in Science (Hons) Computer Applications_
 
 ## Projects
 
-### Check my projects on [GitHub](https://github.com/yourusername)
+### Check my projects on [GitHub](https://github.com/farazkhanfk7)
 ---
