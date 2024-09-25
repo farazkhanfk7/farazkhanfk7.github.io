@@ -1,0 +1,31 @@
+name: Deploy to Public Branch
+
+on:
+  push:
+    paths:
+      - 'public/**'  # Trigger the workflow when changes are made in the public directory
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+
+    - name: Copy public folder to root
+      run: |
+        cp -R public/* .  # Copy all files from public to root
+
+    - name: Commit and Push to public branch
+      run: |
+        git add .
+        git commit -m "Deploy public directory" || echo "No changes to commit"
+        git push origin HEAD:public --force
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Uses the GitHub token for authentication
