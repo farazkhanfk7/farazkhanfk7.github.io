@@ -35,6 +35,15 @@ _Remote/Bangalore, India_
 
 ---
 
+**Google Summer of Code 2021 : Software Developer Intern**                                    `May'21 – Aug'21`
+_Remote - Open-Source_
+
+- Worked on improving the existing flagship server for Semantic Web called hydrus. Utilized the power of Linked Data (JSON-LD), Hydra(W3C) and flask,implementing support for POST operations for Collections and Resources, improving CRUD operations
+- Enhanced database support, allowing for different data types, including datetime columns, and increased test coverage in
+hydra-python-core. Additionally, containerized the creditrisk-poc project using Docker for efficient deployment.
+
+---
+
 ## Education
 
 **Aligarh Muslim University**                                                  `June 2021 – July 2023`
