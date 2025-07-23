@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Hasan Faraz Khan</title>
+    <link>https://farazkhanfk7.github.io/tags/</link>
+    <description>Recent content in Tags on Hasan Faraz Khan</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 Jul 2025 13:54:05 +0530</lastBuildDate>
+    <atom:link href="https://farazkhanfk7.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://farazkhanfk7.github.io/tags/python/</link>
+      <pubDate>Wed, 23 Jul 2025 13:54:05 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wsgi</title>
+      <link>https://farazkhanfk7.github.io/tags/wsgi/</link>
+      <pubDate>Wed, 23 Jul 2025 13:54:05 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/wsgi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backend</title>
+      <link>https://farazkhanfk7.github.io/tags/backend/</link>
+      <pubDate>Sat, 28 Sep 2024 15:11:49 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/backend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System-Design</title>
+      <link>https://farazkhanfk7.github.io/tags/system-design/</link>
+      <pubDate>Sat, 28 Sep 2024 15:11:49 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/system-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gsoc</title>
+      <link>https://farazkhanfk7.github.io/tags/gsoc/</link>
+      <pubDate>Sat, 10 Jul 2021 14:54:05 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/gsoc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open-Source</title>
+      <link>https://farazkhanfk7.github.io/tags/open-source/</link>
+      <pubDate>Sat, 10 Jul 2021 14:54:05 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Django</title>
+      <link>https://farazkhanfk7.github.io/tags/django/</link>
+      <pubDate>Mon, 05 Apr 2021 14:21:51 +0530</pubDate>
+      <guid>https://farazkhanfk7.github.io/tags/django/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

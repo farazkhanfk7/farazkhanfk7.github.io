@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  EP02 : Rate Limiting · Hasan Faraz Khan
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Hasan Faraz Khan">
+<meta name="description" content="Rate limiting is an essential practice in backend systems to manage the number of requests a user or application can make to a server within a given time period. By doing this, it helps maintain the server’s stability, ensures fair usage, and protects against abuse like DDoS attacks. Whether you&rsquo;re dealing with high-traffic APIs or managing third-party integrations, rate limiting keeps the system from becoming overloaded and unresponsive.
+
+  Pros:
+  
+    
+    Link to heading
+  
+
+
+Protects servers from being overwhelmed by too many requests.
+Reduces the risk of denial-of-service (DoS) and other security threats.
+Ensures all users have fair access to the system&rsquo;s resources.
+
+
+  Cons:
+  
+    
+    Link to heading
+  
+
+
+Can negatively impact legitimate users with high request volumes.
+More challenging to implement in distributed systems.
+Overly strict limits can lead to a frustrating user experience.
+
+
+  Some common rate limiting algorithms
+  
+    
+    Link to heading
+  
+
+
+  Token Bucket Algorithm
+  
+    
+    Link to heading
+  
+
+The Token Bucket algorithm is one of the most common and efficient methods for implementing rate limiting due to its straightforwardness and reliability.">
+<meta name="keywords" content="blog,developer,personal">
+<meta name="fediverse:creator" content="" />
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EP02 : Rate Limiting">
+  <meta name="twitter:description" content="Rate limiting is an essential practice in backend systems to manage the number of requests a user or application can make to a server within a given time period. By doing this, it helps maintain the server’s stability, ensures fair usage, and protects against abuse like DDoS attacks. Whether you’re dealing with high-traffic APIs or managing third-party integrations, rate limiting keeps the system from becoming overloaded and unresponsive.
+Pros: Link to heading Protects servers from being overwhelmed by too many requests. Reduces the risk of denial-of-service (DoS) and other security threats. Ensures all users have fair access to the system’s resources. Cons: Link to heading Can negatively impact legitimate users with high request volumes. More challenging to implement in distributed systems. Overly strict limits can lead to a frustrating user experience. Some common rate limiting algorithms Link to heading Token Bucket Algorithm Link to heading The Token Bucket algorithm is one of the most common and efficient methods for implementing rate limiting due to its straightforwardness and reliability.">
+
+<meta property="og:url" content="https://farazkhanfk7.github.io/system-design/rate-limiting/">
+  <meta property="og:site_name" content="Hasan Faraz Khan">
+  <meta property="og:title" content="EP02 : Rate Limiting">
+  <meta property="og:description" content="Rate limiting is an essential practice in backend systems to manage the number of requests a user or application can make to a server within a given time period. By doing this, it helps maintain the server’s stability, ensures fair usage, and protects against abuse like DDoS attacks. Whether you’re dealing with high-traffic APIs or managing third-party integrations, rate limiting keeps the system from becoming overloaded and unresponsive.
+Pros: Link to heading Protects servers from being overwhelmed by too many requests. Reduces the risk of denial-of-service (DoS) and other security threats. Ensures all users have fair access to the system’s resources. Cons: Link to heading Can negatively impact legitimate users with high request volumes. More challenging to implement in distributed systems. Overly strict limits can lead to a frustrating user experience. Some common rate limiting algorithms Link to heading Token Bucket Algorithm Link to heading The Token Bucket algorithm is one of the most common and efficient methods for implementing rate limiting due to its straightforwardness and reliability.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="system-design">
+    <meta property="article:published_time" content="2024-09-28T15:11:49+05:30">
+    <meta property="article:modified_time" content="2024-09-28T15:11:49+05:30">
+    <meta property="article:tag" content="Backend">
+    <meta property="article:tag" content="System-Design">
+
+
+
+
+<link rel="canonical" href="https://farazkhanfk7.github.io/system-design/rate-limiting/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.60f552a2c0452fcc0254c54f21c3e0728460c1ae85f97a9c35833a222ef8b884.css" integrity="sha256-YPVSosBFL8wCVMVPIcPgcoRgwa6F&#43;XqcNYM6Ii74uIQ=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://farazkhanfk7.github.io/">
+      Hasan Faraz Khan
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blogs</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/resume/">Resume</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/system-design/">System Design</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://farazkhanfk7.github.io/system-design/rate-limiting/">
+          EP02 : Rate Limiting
+        </a>
+      </h1>
+    </header>
+
+    <p>Rate limiting is an essential practice in backend systems to manage the number of requests a user or application can make to a server within a given time period. By doing this, it helps maintain the server’s stability, ensures fair usage, and protects against abuse like DDoS attacks. Whether you&rsquo;re dealing with high-traffic APIs or managing third-party integrations, rate limiting keeps the system from becoming overloaded and unresponsive.</p>
+<h3 id="pros">
+  Pros:
+  <a class="heading-link" href="#pros">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Protects servers from being overwhelmed by too many requests.</li>
+<li>Reduces the risk of denial-of-service (DoS) and other security threats.</li>
+<li>Ensures all users have fair access to the system&rsquo;s resources.</li>
+</ul>
+<h3 id="cons">
+  Cons:
+  <a class="heading-link" href="#cons">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Can negatively impact legitimate users with high request volumes.</li>
+<li>More challenging to implement in distributed systems.</li>
+<li>Overly strict limits can lead to a frustrating user experience.</li>
+</ul>
+<h1 id="some-common-rate-limiting-algorithms">
+  Some common rate limiting algorithms
+  <a class="heading-link" href="#some-common-rate-limiting-algorithms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="token-bucket-algorithm">
+  Token Bucket Algorithm
+  <a class="heading-link" href="#token-bucket-algorithm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>Token Bucket algorithm</strong> is one of the most common and efficient methods for implementing rate limiting due to its straightforwardness and reliability.</p>
+<h3 id="how-it-operates">
+  How It Operates:
+  <a class="heading-link" href="#how-it-operates">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Visualize a container that holds tokens.</li>
+<li>This container has a fixed capacity, meaning it can only store a certain number of tokens at once.</li>
+<li>Tokens are added to the container at a steady rate, for example, 10 tokens every second.</li>
+<li>When a request comes in, it needs to take a token from the container to proceed.</li>
+<li>If there are sufficient tokens available, the request is approved, and the corresponding number of tokens is removed.</li>
+<li>If the container doesn’t have enough tokens, the request is rejected or delayed until more tokens are available.</li>
+</ul>
+<h2 id="leaky-bucket-algorithm">
+  Leaky Bucket Algorithm
+  <a class="heading-link" href="#leaky-bucket-algorithm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The <strong>Leaky Bucket algorithm</strong> is designed to manage bursts of traffic by regulating the flow more steadily.</p>
+<h3 id="how-it-works">
+  How It Works:
+  <a class="heading-link" href="#how-it-works">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Picture a bucket with a tiny hole at the bottom.</li>
+<li>Incoming requests are added to the bucket from the top.</li>
+<li>The bucket processes, or &ldquo;leaks,&rdquo; the requests at a fixed, constant rate through the hole.</li>
+<li>If the bucket fills up and overflows, additional incoming requests are dropped until there&rsquo;s room again.</li>
+</ul>
+<h3 id="other-rate-limiting-algorithms">
+  Other Rate Limiting Algorithms
+  <a class="heading-link" href="#other-rate-limiting-algorithms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While the Token Bucket and Leaky Bucket algorithms are good choices to understand how rate-limiting works, there are several other rate-limiting methods worth exploring. One such approach is the <strong>Sliding Window</strong>, which provides a more flexible way to track and limit requests over time. Depending on your use case, each algorithm has its own advantages and trade-offs, making it important to choose the right one for your system.</p>
+<h3 id="acknowledgements">
+  Acknowledgements
+  <a class="heading-link" href="#acknowledgements">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>I would like to extend my thanks to the following resources for providing valuable insights and explanations:</p>
+<ul>
+<li><a href="https://blog.algomaster.io/p/rate-limiting-algorithms-explained-with-code"  class="external-link" target="_blank" rel="noopener">Rate Limiting Algorithms Explained with Code</a></li>
+<li><a href="https://blog.bytebytego.com/p/rate-limiting-fundamentals"  class="external-link" target="_blank" rel="noopener">Rate Limiting Fundamentals</a></li>
+</ul>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    2025
+     Hasan Faraz Khan 
+
+    
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
