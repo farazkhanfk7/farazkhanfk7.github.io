@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy public folder to public branch
 
 on:
   push:
@@ -10,21 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
+      - name: Check if public/ folder has changed
+        id: public-changed
+        run: |
+          if git diff --quiet HEAD^ HEAD -- public; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
 
-    - name: Build the site
-      run: hugo
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-        external_repository: farazkhanfk7/farazkhanfk7.github.io
-        publish_branch: main
+      - name: Deploy to public branch
+        if: steps.public-changed.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./public
+          publish_branch: public
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -3,7 +3,7 @@ title: "About"
 date: 2024-09-25
 ---
 
-I am Hasan Faraz Khan, a Software Development Engineer (Backend) at Carret, where I focus on backend technologies and server-side development. I have experience working with fintech and gaming startups, where I developed high-performance applications and backend systems.
+I am Hasan Faraz Khan, a Software Development Engineer (Backend) at Carret, where I focus on backend technologies and server-side development. I am currently a research scholar at KFUPM. I have experience working with fintech and gaming startups, where I developed high-performance applications and backend systems.
 
 As an open-source enthusiast, I have contributed to various projects, collaborating with the Python Software Foundation and the Hydra ecosystem. I have also presented my work at various conferences, sharing insights from my contributions and engaging with the wider developer community.
 
