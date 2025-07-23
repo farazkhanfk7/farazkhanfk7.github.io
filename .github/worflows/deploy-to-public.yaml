@@ -3,7 +3,7 @@ name: Deploy to Public Branch
 on:
   push:
     paths:
-      - 'public/**'  # Trigger the workflow when changes are made in the public directory
+      - 'main'  # Trigger the workflow when changes are made in the public directory
 
 jobs:
   deploy:
