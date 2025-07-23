@@ -1,0 +1,31 @@
+name: Deploy public folder  content to public branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check if public/ folder has changed
+        id: public-changed
+        run: |
+          if git diff --quiet HEAD^ HEAD -- public; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to public branch
+        if: steps.public-changed.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./public
+          publish_branch: public
+          github_token: ${{ secrets.GITHUB_TOKEN }}
